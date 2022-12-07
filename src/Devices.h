@@ -38,16 +38,21 @@
 #define ATSAMD_FLASH_ROW_PAGES               (4ul)           // 4 pages per row
 
 
+// Aanpassingen gebaseerd op master branch
+// https://github.com/shumatech/BOSSA/blob/master/src/Device.cpp#L451
+//                                    name,             pages,  size,   user,       stack
+// flashPtr = new D2xNvmFlash(_samba, "ATSAMD21x18",    4096,   64,     0x20004000, 0x20008000) ;
+// flashPtr = new D2xNvmFlash(_samba, "ATSAMD21x16",    1024,   64,     0x20001000, 0x20002000) ;
 #define ATSAMD21G16A_NAME                    "ATSAMD21G16A"
 #define ATSAMD21G16A_CHIPID                  (0x10010023ul)  // DIE & REV bitfields masked in Samba::chipId()
 #define ATSAMD21G16A_FLASH_BASE              (0x00000000ul + ATSAMD_BOOTLOADER_SIZE)
 #define ATSAMD21G16A_FLASH_PAGE_SIZE         (64ul)
-#define ATSAMD21G16A_FLASH_PAGES             (1024ul)
+#define ATSAMD21G16A_FLASH_PAGES             (1024ul) // Datasheet Table 10-3. SAM D21 Flash Memory Parameters
 #define ATSAMD21G16A_FLASH_PLANES            (1ul)
-#define ATSAMD21G16A_FLASH_LOCK_REGIONS      (4ul)
-#define ATSAMD21G16A_BUFFER_ADDR             (0x20004000ul)
-#define ATSAMD21G16A_STACK_ADDR              (0x20008000ul)
-#define ATSAMD21G16A_NVMCTRL_BASE            (0x41004000ul)
+#define ATSAMD21G16A_FLASH_LOCK_REGIONS      (4ul) // Datasheet 22.6.3 Region Lock Bits
+#define ATSAMD21G16A_BUFFER_ADDR             (0x20001000ul)
+#define ATSAMD21G16A_STACK_ADDR              (0x20002000ul)
+#define ATSAMD21G16A_NVMCTRL_BASE            (0x41004000ul) // Datasheet Table 12-1. Peripherals Configuration Summary
 
 
 #define ATSAMD21J18A_NAME                    "ATSAMD21J18A"
