@@ -178,7 +178,7 @@ Samba::init()
     }
     // Check for supported M0+ processor
     // NOTE: 0x1001000a is a ATSAMD21E18A, 0x1001001c is ATSAMR21E18A
-	else if (cid == 0x10010000 || cid == 0x10010100 || cid == 0x10010005 || cid == 0x1001000a || cid == 0x1001001c)
+	else if (cid == 0x10010023 || cid == 0x10010000 || cid == 0x10010100 || cid == 0x10010005 || cid == 0x1001000a || cid == 0x1001001c)
     {
         return true;
     }
@@ -660,6 +660,7 @@ Samba::reset(void)
 
     switch (chipId)
     {
+    case ATSAMD21G16A_CHIPID:
     case ATSAMD21J18A_CHIPID:
     case ATSAMD21G18A_CHIPID:
     case ATSAMD21E18A_CHIPID:
